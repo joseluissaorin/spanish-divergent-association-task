@@ -15,10 +15,10 @@ const Navigation = () => {
 
   return (
     <nav className="flex justify-center space-x-6 mb-12 text-gray-500 text-sm">
-      <NavLink to="/" active={isActive('/')}>Home</NavLink>
-      <NavLink to="/test" active={isActive('/test')}>Take the test</NavLink>
-      <NavLink to="/about" active={isActive('/about')}>About</NavLink>
-      <NavLink to="/faq" active={isActive('/faq')}>FAQ</NavLink>
+      <NavLink to="/" active={isActive('/')}>Inicio</NavLink>
+      <NavLink to="/test" active={isActive('/test')}>Realizar prueba</NavLink>
+      <NavLink to="/about" active={isActive('/about')}>Acerca de</NavLink>
+      <NavLink to="/faq" active={isActive('/faq')}>Preguntas frecuentes</NavLink>
     </nav>
   );
 };

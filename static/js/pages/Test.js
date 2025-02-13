@@ -36,10 +36,10 @@ const Test = () => {
         localStorage.removeItem('dat_words');
         window.location.href = `/results?data=${encodeURIComponent(JSON.stringify(data))}`;
       } else {
-        setErrors({ submit: data.error || 'Error al calcular la puntuación' });
+        setErrors({ submit: data.error || 'No se pudo calcular la puntuación. Por favor, inténtalo de nuevo.' });
       }
     } catch (error) {
-      setErrors({ submit: 'Error al calcular la puntuación' });
+      setErrors({ submit: 'Hubo un problema al procesar tu respuesta. Por favor, inténtalo de nuevo.' });
     }
   };
 
@@ -53,26 +53,26 @@ const Test = () => {
   return (
     <Layout>
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-xl font-semibold mb-6">Instrucciones</h2>
+        <h2 className="text-xl font-semibold mb-6">¿Cómo funciona la prueba?</h2>
         
         <p className="mb-6">
-          Por favor, introduce 10 palabras que sean lo más <strong>diferentes</strong> posible 
-          entre sí, en todos los significados y usos de las palabras.
+          Tu tarea es escribir 10 palabras que sean lo más <strong>diferentes</strong> posible 
+          entre sí. Piensa en palabras que tengan significados y usos muy distintos.
         </p>
 
         <div className="mb-8">
-          <h3 className="font-semibold mb-2">Reglas</h3>
+          <h3 className="font-semibold mb-2">Reglas importantes</h3>
           <ul className="list-decimal pl-5 space-y-2">
-            <li>Solo <strong>palabras individuales</strong> en español.</li>
-            <li>Solo <strong>sustantivos</strong> (ej., cosas, objetos, conceptos).</li>
-            <li>No nombres propios (ej., no personas o lugares específicos).</li>
-            <li>No vocabulario especializado (ej., no términos técnicos).</li>
-            <li>Piensa en las palabras por tu cuenta (ej., no mires objetos a tu alrededor).</li>
+            <li>Usa solo <strong>palabras individuales</strong> en español (sin espacios).</li>
+            <li>Escribe solo <strong>sustantivos comunes</strong> (cosas, objetos o conceptos).</li>
+            <li>Evita nombres propios (personas, lugares, marcas).</li>
+            <li>No uses términos técnicos o muy especializados.</li>
+            <li>Genera las palabras por ti mismo/a (no mires a tu alrededor).</li>
           </ul>
         </div>
 
-        <div className="mb-8">
-          <h3 className="font-semibold mb-2">Consentimiento</h3>
+        <div className="bg-gray-50 p-4 rounded-lg mb-8">
+          <h3 className="font-semibold mb-2">Participación en investigación</h3>
           <label className="flex items-start space-x-2">
             <input
               type="checkbox"
@@ -81,23 +81,25 @@ const Test = () => {
               className="mt-1 rounded border-gray-300"
             />
             <span className="text-sm">
-              ¿Contribuir con tus respuestas anónimas a nuestra investigación?
+              Acepto que mis respuestas anónimas se utilicen con fines de investigación científica 
+              sobre creatividad y procesos cognitivos.
             </span>
           </label>
         </div>
 
         <details className="mb-8">
-          <summary className="cursor-pointer text-gray-600">
-            Detalles del estudio (1 min)
+          <summary className="cursor-pointer text-gray-600 hover:text-gray-900">
+            Más información sobre el estudio
           </summary>
           <div className="mt-2 pl-4 text-sm text-gray-600">
             <p className="mb-2">
-              Esta es una adaptación al español del Divergent Association Task original,
-              desarrollado por investigadores de Harvard, McGill y Melbourne.
+              Esta es una adaptación al español del Divergent Association Task (DAT) original, 
+              desarrollado por investigadores de las universidades de Harvard, McGill y Melbourne.
             </p>
             <p>
-              Los datos se utilizarán para investigar la creatividad verbal en español
-              y su relación con otros procesos cognitivos.
+              Los datos anónimos se utilizarán para estudiar la creatividad verbal en español 
+              y su relación con otros procesos cognitivos. Ningún dato personal es recolectado 
+              ni almacenado.
             </p>
           </div>
         </details>
@@ -113,7 +115,7 @@ const Test = () => {
                   newWords[i] = e.target.value.toLowerCase();
                   setWords(newWords);
                 }}
-                placeholder="Introduce un sustantivo"
+                placeholder="Escribe un sustantivo"
                 className="w-full p-2 border rounded focus:ring-1 focus:ring-gray-900"
                 required
               />
@@ -132,7 +134,7 @@ const Test = () => {
               type="submit"
               className="w-full bg-gray-900 text-white py-2 rounded hover:bg-gray-800"
             >
-              Enviar
+              Calcular mi puntuación
             </button>
             
             {words.some(word => word !== '') && (

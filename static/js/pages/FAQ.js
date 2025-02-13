@@ -5,63 +5,116 @@ const FAQ = () => (
         <h1 className="text-3xl font-bold mb-6">Preguntas frecuentes</h1>
   
         <details className="mb-4">
-          <summary className="font-semibold cursor-pointer">
-            ¿Una prueba tan simple puede medir realmente la creatividad?
+          <summary className="font-semibold cursor-pointer hover:text-gray-900">
+            ¿Una prueba tan breve puede medir realmente la creatividad?
           </summary>
-          <p className="mt-2">
-            Nuestra prueba mide solo una parte del complejo proceso de la creatividad.
-            Nos centramos en la creatividad verbal y el pensamiento divergente. En nuestros
-            estudios, las puntuaciones correlacionan con otras medidas de creatividad.
-          </p>
+          <div className="mt-2 pl-4">
+            <p>
+              El DAT mide específicamente un aspecto de la creatividad: la capacidad de generar 
+              ideas semánticamente distantes (pensamiento divergente verbal). Los estudios han 
+              demostrado que esta capacidad correlaciona significativamente con otras medidas 
+              establecidas de creatividad.
+            </p>
+            <p className="mt-2">
+              Sin embargo, la creatividad es un fenómeno complejo que incluye múltiples aspectos 
+              como la originalidad, la flexibilidad y la elaboración de ideas. El DAT se centra 
+              en medir uno de estos aspectos de manera eficiente y objetiva.
+            </p>
+          </div>
         </details>
   
         <details className="mb-4">
-          <summary className="font-semibold cursor-pointer">
-            ¿Por qué solo es válida la primera puntuación?
+          <summary className="font-semibold cursor-pointer hover:text-gray-900">
+            ¿Por qué solo es válido el primer intento?
           </summary>
-          <p className="mt-2">
-            Una vez que ves las distancias entre las palabras, es más fácil aumentar o
-            disminuir artificialmente tu puntuación. En nuestros estudios, los participantes
-            no reciben retroalimentación sobre su puntuación o las distancias entre palabras,
-            y sus puntuaciones son bastante consistentes cuando repiten la prueba dos
-            semanas después.
-          </p>
+          <div className="mt-2 pl-4">
+            <p>
+              Al ver la matriz de distancias entre palabras en los resultados, es posible 
+              aprender a manipular artificialmente la puntuación. En los estudios de validación, 
+              los participantes no recibieron retroalimentación sobre las distancias entre palabras, 
+              y sus puntuaciones mostraron consistencia al repetir la prueba después de dos semanas.
+            </p>
+          </div>
         </details>
   
         <details className="mb-4">
-          <summary className="font-semibold cursor-pointer">
-            ¿Cómo se calcula la distancia entre las palabras?
+          <summary className="font-semibold cursor-pointer hover:text-gray-900">
+            ¿Cómo se calculan las distancias entre palabras?
           </summary>
-          <p className="mt-2">
-            Utilizamos el modelo FastText en español, que analiza cómo se usan las palabras
-            en conjunto en miles de millones de páginas web. Las palabras que aparecen en
-            contextos similares tienen distancias más cortas entre ellas.
-          </p>
+          <div className="mt-2 pl-4">
+            <p>
+              Utilizamos embeddings de FastText en español, un modelo de procesamiento de lenguaje 
+              natural entrenado con miles de millones de textos en español. El modelo representa 
+              cada palabra como un vector matemático basado en sus contextos de uso. La distancia 
+              entre dos palabras se calcula como la distancia coseno entre sus vectores.
+            </p>
+            <p className="mt-2">
+              Este método es una adaptación del utilizado en el DAT original, que emplea embeddings 
+              GloVe para el inglés. Ambos enfoques permiten cuantificar objetivamente las distancias 
+              semánticas entre palabras.
+            </p>
+          </div>
         </details>
   
         <details className="mb-4">
-          <summary className="font-semibold cursor-pointer">
-            ¿Por qué se usan solo 7 de las 10 palabras?
+          <summary className="font-semibold cursor-pointer hover:text-gray-900">
+            ¿Por qué se utilizan solo 7 de las 10 palabras?
           </summary>
-          <p className="mt-2">
-            Si requiriéramos 10 palabras válidas, no podríamos calcular una puntuación si
-            hubiera un solo error ortográfico. Requerir solo 7 de las 10 permite cierta
-            redundancia: puedes proporcionar hasta 3 palabras inválidas y aún recibir una
-            puntuación.
-          </p>
+          <div className="mt-2 pl-4">
+            <p>
+              Esta decisión metodológica permite cierta flexibilidad: puedes cometer hasta tres 
+              errores (palabras no válidas o errores ortográficos) y aun así recibir una puntuación 
+              válida. Si requiriéramos las 10 palabras, un solo error invalidaría toda la prueba.
+            </p>
+            <p className="mt-2">
+              Los estudios de validación han demostrado que 7 palabras son suficientes para obtener 
+              una medida confiable del pensamiento divergente.
+            </p>
+          </div>
         </details>
   
         <details className="mb-4">
-          <summary className="font-semibold cursor-pointer">
-            Obtuve una puntuación baja. ¿Significa que no soy creativo?
+          <summary className="font-semibold cursor-pointer hover:text-gray-900">
+            Mi puntuación fue baja, ¿significa que no soy creativo/a?
           </summary>
-          <p className="mt-2">
-            Una puntuación baja simplemente significa que obtuviste una puntuación baja
-            en esta medida particular. Hay muchos tipos y aspectos diferentes de la
-            creatividad que esta prueba no mide. Ninguna prueba individual puede capturar
-            completamente la creatividad.
-          </p>
+          <div className="mt-2 pl-4">
+            <p>
+              En absoluto. El DAT mide específicamente la capacidad de generar palabras semánticamente 
+              distantes, que es solo un aspecto del pensamiento divergente verbal. La creatividad es 
+              un fenómeno mucho más amplio que incluye múltiples habilidades y se manifiesta de 
+              diversas formas.
+            </p>
+            <p className="mt-2">
+              Existen muchas formas de creatividad que esta prueba no evalúa, como la creatividad 
+              visual, musical, kinestésica o la capacidad de resolver problemas de manera innovadora. 
+              Una puntuación baja simplemente indica una oportunidad para desarrollar este aspecto 
+              específico del pensamiento divergente.
+            </p>
+          </div>
         </details>
+
+        <div className="bg-gray-50 p-4 rounded-lg mt-8">
+          <p className="text-sm">
+            Para más información sobre la metodología y validación del DAT original, puedes consultar el{' '}
+            <a 
+              href="https://www.pnas.org/doi/10.1073/pnas.2022340118"
+              className="text-gray-900 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              artículo científico
+            </a>
+            {' '}publicado en PNAS o visitar la{' '}
+            <a 
+              href="https://datcreativity.com"
+              className="text-gray-900 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              página oficial del DAT
+            </a>.
+          </p>
+        </div>
       </div>
     </Layout>
   );
