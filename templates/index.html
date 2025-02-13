@@ -4,43 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAT en Español</title>
+    <!-- Analytics -->
+    <script defer data-domain="dat.joseluissaorin.com" src="https://analytics.joseluissaorin.com/js/script.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon/favicon.svg') }}">
     <link rel="alternate icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
     <!-- React and dependencies -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Styles -->
+    <link href="{{ url_for('static', filename='dist/main.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="root"></div>
     
-    <!-- Base Components -->
-    <script type="text/babel">
-        // Make React and ReactDOM available globally
-        window.React = React;
-        window.ReactDOM = ReactDOM;
-    </script>
-    
-    <!-- Error Handling Components -->
-    <script type="text/babel" src="{{ url_for('static', filename='js/components/ErrorBoundary.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/components/RetryWrapper.js') }}"></script>
-    
-    <!-- Components -->
-    <script type="text/babel" src="{{ url_for('static', filename='js/components/Logo.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/components/Navigation.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/components/Layout.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/components/WordGrid.js') }}"></script>
-    
-    <!-- Pages -->
-    <script type="text/babel" src="{{ url_for('static', filename='js/pages/Home.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/pages/Test.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/pages/Results.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/pages/About.js') }}"></script>
-    <script type="text/babel" src="{{ url_for('static', filename='js/pages/FAQ.js') }}"></script>
-    
-    <!-- Main App -->
-    <script type="text/babel" src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <!-- Bundled JavaScript -->
+    <script src="{{ url_for('static', filename='dist/components.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/pages.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/app.bundle.js') }}"></script>
 </body>
 </html>

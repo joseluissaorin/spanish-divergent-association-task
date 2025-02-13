@@ -27,3 +27,5 @@ codebase-knowledge.md
 *.pyproject.toml.lockb
 *.pyproject.toml.lockfile
 *.pyproject.toml.lockb
+
+node_modules/

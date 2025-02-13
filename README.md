@@ -41,11 +41,14 @@ spanish-dat/
 - FastText: Spanish word embeddings
 - NumPy: Numerical computations
 - SciPy: Statistical calculations
+- UV: Python package manager
 
 ### Frontend
-- React (via CDN, no build step)
-- Tailwind CSS (via CDN)
-- Babel (via CDN for JSX support)
+- React 18
+- Tailwind CSS
+- Webpack for bundling
+- Babel for transpilation
+- PostCSS for CSS processing
 
 ## Setup and Installation
 
@@ -55,19 +58,67 @@ git clone https://github.com/joseluissaorin/spanish-dat.git
 cd spanish-dat
 ```
 
-2. Install Python dependencies:
+2. Install Python dependencies using UV:
 ```bash
-pip install flask flask-cors fasttext numpy scipy
+uv venv
+source .venv/bin/activate  # On Unix/macOS
+# or
+.venv\Scripts\activate     # On Windows
+uv pip install -r requirements.txt
 ```
 
-3. Run the application:
+3. Install Node.js dependencies:
 ```bash
-python app.py
+npm install
 ```
 
-4. Access the application at http://localhost:5000
+4. Build the frontend assets:
+```bash
+# For production
+npm run build
+
+# For development with hot reload
+npm run dev
+```
+
+5. Run the application:
+```bash
+# In a new terminal
+uv run python app.py
+```
+
+6. Access the application at http://localhost:5000
 
 Note: The Spanish FastText model will be automatically downloaded on first run.
+
+## Development Workflow
+
+### Quick Development (no hot reload)
+1. Make changes to JS/CSS files
+2. Run build when done:
+```bash
+npm run build
+```
+3. Refresh browser to see changes
+
+### Full Development (with hot reload)
+1. Start the frontend development server:
+```bash
+npm run dev
+```
+2. In a separate terminal, run the Flask server:
+```bash
+uv run python app.py
+```
+3. Changes to JS/CSS files will automatically trigger rebuilds
+
+### Build Commands
+- `npm run build`: Full production build (JS + CSS)
+- `npm run build:js`: Build only JavaScript files
+- `npm run build:css`: Build only CSS files
+- `npm run dev`: Start development servers with hot reload
+- `npm run watch:js`: Watch JavaScript files for changes
+- `npm run watch:css`: Watch CSS files for changes
 
 ## Key Features
 
