@@ -1,0 +1,29 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+*.json
+*.bin
+*.gz
+changelog.md
+codebase-knowledge.md
+*.toml
+*.yaml
+*.yml
+*.lock
+*.lockb
+*.lockfile
+*.lockb
+*.version
+*.python-version
+*.pyproject.toml
+*.pyproject.toml.lock
+*.pyproject.toml.lockb
+*.pyproject.toml.lockfile
+*.pyproject.toml.lockb
